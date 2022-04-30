@@ -6,4 +6,7 @@
     <string name="enter_your_names">Enter Your Names</string>
     <string name="submmit_names">Submmit Names</string>
     <string name="_00_00">00:00</string>
+    <string name="player_name">player name</string>
+    <string name="No_winner">No winner</string>
+    <string name="win">win</string>
 </resources>

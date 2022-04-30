@@ -94,14 +94,21 @@ public class GameActivity extends AppCompatActivity  implements View.OnClickList
         roundCount++;
         if(checkWinner())
         {
+            Intent intent=new Intent(this,FinalActivity.class);
             if(activePlayer){
-                Log.i("win","Player 1 won");
+                intent.putExtra("win",player1_name.getText().toString());
             }
-            else
-                Log.i("win","Player 2 won");
+            else {
+                intent.putExtra(getString(R.string.win), player2_name.getText().toString());
+            }
+            intent.putExtra("speed",getTimerText().toString());
+            timerTask.cancel();
+            startActivity(intent);
         }
         else if(roundCount == 9){
-            Log.i("won","No winner");
+            Intent intent = new Intent(this, FinalActivity.class);
+            intent.putExtra(getString(R.string.win),getString(R.string.No_winner));
+            startActivity(intent);
 
         }
         else
