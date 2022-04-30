@@ -11,9 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class GameActivity extends AppCompatActivity  implements View.OnClickListener {
 
     TextView player1_name, player2_name;
+    TextView timerText;
+    Timer timer;
+    TimerTask timerTask;
+    Double time =0.0;
 
     private Button[] buttons = new Button[9];
 
@@ -32,6 +39,22 @@ public class GameActivity extends AppCompatActivity  implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        timerText = findViewById(R.id.timer);
+        timer = new Timer();
+        timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        time++;
+                        timerText.setText(getTimerText());
+                    }
+                });
+            }
+        };
+        timer.scheduleAtFixedRate(timerTask,0,1000);
 
         player1_name = findViewById(R.id.tv_player1);
         player2_name = findViewById(R.id.tv_player2);
@@ -100,5 +123,14 @@ public class GameActivity extends AppCompatActivity  implements View.OnClickList
     protected void onStart() {
         super.onStart();
 
+    }
+
+    public String getTimerText()
+    {
+        int rounded = (int) Math.round(time);
+        int seconds = ((rounded % 86400 % 3600) % 60);
+        int minutes = ((rounded % 86400 % 3600) / 60);
+        String timeStr = String.format("%02d",minutes) + " : " + String.format("%02d",seconds);
+        return timeStr;
     }
 }

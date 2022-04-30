@@ -186,4 +186,18 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="113dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="273dp"
+        android:layout_marginTop="551dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/_00_00"
+        android:textAlignment="center"
+        android:textSize="25sp" />
+
 </RelativeLayout>
