@@ -12,8 +12,8 @@
         android:id="@+id/middleLayout"
         android:layout_width="match_parent"
         android:layout_height="571dp"
-        android:layout_below="@+id/ornage_rectangle"
-        android:layout_marginTop="-59dp"
+        android:layout_below="@+id/Tv_Title"
+        android:layout_marginTop="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -144,27 +144,16 @@
             app:srcCompat="@drawable/player1" />
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/ornage_rectangle"
-        android:layout_width="match_parent"
-        android:layout_height="219dp"
-        android:background="@drawable/orange_rectangle">
-
-    </ImageView>
-
-
     <TextView
         android:id="@+id/Tv_Title"
         android:layout_width="wrap_content"
-        android:layout_height="86dp"
+        android:layout_height="80dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="33dp"
         android:layout_marginTop="75dp"
         android:layout_marginEnd="22dp"
-        android:layout_marginBottom="570dp"
         android:fontFamily="@font/anton"
         android:letterSpacing="0.15"
         android:shadowColor="@color/white"
