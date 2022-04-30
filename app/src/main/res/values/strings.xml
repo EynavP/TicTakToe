@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="start">Start</string>
+    <string name="player_1">Player 1</string>
+    <string name="player_2">player 2</string>
+    <string name="enter_your_names">Enter Your Names</string>
 </resources>

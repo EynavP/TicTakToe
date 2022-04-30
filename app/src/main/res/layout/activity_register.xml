@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/middleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="571dp"
+        android:layout_below="@+id/ornage_rectangle"
+        android:layout_marginTop="-59dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+
+        <ImageView
+            android:id="@+id/Img_player1"
+            android:layout_width="115dp"
+            android:layout_height="121dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="260dp"
+            app:srcCompat="@drawable/player1" />
+
+        <ImageView
+            android:id="@+id/Img_player2"
+            android:layout_width="wrap_content"
+            android:layout_height="114dp"
+            android:layout_below="@+id/Img_player1"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="44dp"
+
+            android:layout_marginEnd="255dp"
+            app:srcCompat="@drawable/player2" />
+
+        <EditText
+            android:id="@+id/Et_player1"
+            android:layout_width="183dp"
+            android:layout_height="61dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="189dp"
+            android:layout_marginTop="207dp"
+            android:layout_marginEnd="38dp">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/et_player2"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="191dp"
+            android:layout_marginTop="372dp"
+            android:layout_marginEnd="36dp"></EditText>
+
+        <TextView
+            android:id="@+id/Tv_player1"
+            android:layout_width="175dp"
+            android:layout_height="49dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="194dp"
+            android:layout_marginTop="145dp"
+            android:layout_marginEnd="41dp"
+            android:fontFamily="casual"
+            android:text="@string/player_1"
+            android:textAlignment="center"
+            android:textSize="30sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_player2"
+            android:layout_width="175dp"
+            android:layout_height="49dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="199dp"
+            android:layout_marginTop="308dp"
+            android:layout_marginEnd="47dp"
+            android:fontFamily="casual"
+            android:text="@string/player_2"
+            android:textAlignment="center"
+            android:textSize="30sp">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="146dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="137dp"
+            android:layout_marginTop="492dp"
+            android:layout_marginEnd="128dp"
+            android:text="@string/start"
+            android:textAlignment="center" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/ornage_rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="219dp"
+        android:background="@drawable/orange_rectangle">
+
+    </ImageView>
+
+
+    <TextView
+        android:id="@+id/Tv_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="86dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="587dp"
+        android:fontFamily="@font/anton"
+        android:letterSpacing="0.15"
+        android:text="@string/enter_your_names"
+        android:textAlignment="center"
+        android:textColor="#FAFAFA"
+        android:textSize="34sp"
+        android:textStyle="bold">
+
+    </TextView>
+
+</RelativeLayout>
