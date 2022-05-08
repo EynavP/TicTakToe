@@ -9,13 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.db.User;
+
 import java.util.List;
 
 public class WinnerAdapter extends RecyclerView.Adapter<WinnerAdapter.ViewHolder> {
     private LayoutInflater layoutInflater;
-    private List<Winners> winnersList;
+    private List<User> winnersList;
 
-    public WinnerAdapter(Context context, List<Winners> winnersList) {
+    public WinnerAdapter(Context context, List<User> winnersList) {
         this.layoutInflater = LayoutInflater.from(context);
         this.winnersList = winnersList;
     }
@@ -30,10 +32,10 @@ public class WinnerAdapter extends RecyclerView.Adapter<WinnerAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
 
-        String playerName=winnersList.get(i).getPlayerName();
+        String playerName=winnersList.get(i).user_name;
         holder.playerName.setText(playerName);
 
-        String Speed=winnersList.get(i).getSpeed();
+        String Speed=winnersList.get(i).time;
         holder.Speed.setText(Speed);
 
         String playerRank=String.valueOf(i+1);

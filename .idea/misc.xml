@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTakToe/app/src/main/res/layout/activity_final.xml" value="0.2" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TicTakToe/app/src/main/res/layout/recycler_item.xml" value="0.264" />
         <entry key="..\:/Users/koral/Desktop/Android_course/Tic_Tak_toe/app/src/main/res/drawable/orange_button.xml" value="0.1725" />
         <entry key="..\:/Users/koral/Desktop/Android_course/Tic_Tak_toe/app/src/main/res/drawable/orange_rectangle.xml" value="0.1725" />
         <entry key="..\:/Users/koral/Desktop/Android_course/Tic_Tak_toe/app/src/main/res/drawable/white_circle_players.xml" value="0.1725" />
