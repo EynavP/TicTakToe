@@ -36,7 +36,7 @@ public class WinnerAdapter extends RecyclerView.Adapter<WinnerAdapter.ViewHolder
         holder.playerName.setText(playerName);
 
         String Speed=winnersList.get(i).time;
-        holder.Speed.setText(Speed);
+        holder.Speed.setText(Speed+" sec");
 
         String playerRank=String.valueOf(i+1);
         holder.playerRank.setText(playerRank);

@@ -47,40 +47,12 @@ public class FinalActivity extends AppCompatActivity {
         playAgainBtn = findViewById(R.id.play_again_btn);
         progressBar = findViewById(R.id.progressBar);
 
-        playAgainBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this,RegisterActivity.class);
-            startActivity(intent);
-            finish();
-        });
+        DataBase db = DataBase.getDbInstance(this.getApplicationContext());
+        winners = db.userDao().getTopTen();
+
+
 
         Thread t = new Thread(() -> {
-            DataBase db = DataBase.getDbInstance(this.getApplicationContext());
-            winners = db.userDao().getAllUsers();
-            sortWinners(winners);
-
-
-            if(!winnerName.equals(getString(R.string.No_winner))){
-                String winnerSpeed=getIntent().getStringExtra("speed");
-                if(winners.size() <=9)
-                {
-                    User user = new User();
-                    user.user_name = winnerName;
-                    user.time = winnerSpeed;
-                    db.userDao().insertUser(user);
-                    sortWinners(winners);
-                }
-                else
-                {
-                    if(compareTime(winners.get(9).time, winnerSpeed) == 1 ){
-                        db.userDao().delete(winners.get(9));
-                        User user = new User();
-                        user.user_name = winnerName;
-                        user.time = winnerSpeed;
-                        db.userDao().insertUser(user);
-                        sortWinners(winners);
-                    }
-                }
-            }
 
             this.runOnUiThread(() -> {
 
@@ -99,8 +71,11 @@ public class FinalActivity extends AppCompatActivity {
         });
         t.start();
 
-
-
+        playAgainBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(this,RegisterActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
 
     }
@@ -114,35 +89,6 @@ public class FinalActivity extends AppCompatActivity {
         if(progressBar.getVisibility() != View.INVISIBLE) {
             progressBar.setVisibility(View.VISIBLE);
         }
-    }
-
-    private void sortWinners(List<User> winners)
-    {
-        Collections.sort(winners, new Comparator<User>() {
-            @Override
-            public int compare(User user, User t1) {
-                return compareTime(user.time, t1.time);
-            }
-        });
-    }
-
-    public int compareTime(String t1, String t2)
-    {
-        SimpleDateFormat parser = new SimpleDateFormat("HH : mm");
-        Date user1 = null;
-        Date user2 = null;
-        try {
-            user1 = parser.parse(t1);
-            user2 = parser.parse(t2);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        if (user1.after(user2)) {
-            return 1;
-        } else if (user1.equals(user2))
-            return 0;
-        else
-            return -1;
     }
 
 }

@@ -11,6 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.myapplication.db.DataBase;
+import com.example.myapplication.db.User;
+import com.example.myapplication.db.UserDao;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -20,7 +24,7 @@ public class GameActivity extends AppCompatActivity  implements View.OnClickList
     TextView timerText;
     Timer timer;
     TimerTask timerTask;
-    Double time =0.0;
+    int time =0;
 
     private Button[] buttons = new Button[9];
 
@@ -49,7 +53,7 @@ public class GameActivity extends AppCompatActivity  implements View.OnClickList
                     @Override
                     public void run() {
                         time++;
-                        timerText.setText(getTimerText());
+                        timerText.setText(time+" seconds");
                     }
                 });
             }
@@ -75,6 +79,7 @@ public class GameActivity extends AppCompatActivity  implements View.OnClickList
 
     @Override
     public void onClick(View view) {
+        DataBase db=DataBase.getDbInstance(this.getApplicationContext());
         if(!((Button)view).getText().toString().equals(""))
             return;
         String buttonID = view.getResources().getResourceEntryName(view.getId());
@@ -92,16 +97,23 @@ public class GameActivity extends AppCompatActivity  implements View.OnClickList
             gamestate[lastPressed]=1;
         }
         roundCount++;
+        User winner=new User();
         if(checkWinner())
         {
             Intent intent=new Intent(this,FinalActivity.class);
             if(activePlayer){
                 intent.putExtra("win",player1_name.getText().toString());
+                winner.setUser_name(player1_name.getText().toString());
+
             }
             else {
                 intent.putExtra(getString(R.string.win), player2_name.getText().toString());
+                winner.setUser_name(player2_name.getText().toString());
             }
-            intent.putExtra("speed",getTimerText().toString());
+            intent.putExtra("speed",String.valueOf(time));
+            winner.setTime(String.valueOf(time));
+            winner.setUid(db.userDao().getLastUid()+1);
+            db.userDao().insertUser(winner);
             timerTask.cancel();
             startActivity(intent);
         }
@@ -126,18 +138,12 @@ public class GameActivity extends AppCompatActivity  implements View.OnClickList
         return  winnerResult;
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
-    public String getTimerText()
+  /*  public String getTimerText()
     {
         int rounded = (int) Math.round(time);
         int seconds = ((rounded % 86400 % 3600) % 60);
         int minutes = ((rounded % 86400 % 3600) / 60);
-        String timeStr = String.format("%02d",minutes) + " : " + String.format("%02d",seconds);
+        String timeStr = String.format("%02d",minutes) + ":" + String.format("%02d",seconds);
         return timeStr;
-    }
+    }*/
 }
